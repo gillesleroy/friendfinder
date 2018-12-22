@@ -1,20 +1,16 @@
 {
-  "name": "friendfinder",
+  "name": "buddfinder",
   "version": "1.0.0",
-  "description": "UCB Homework matching friends application",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gillesleroy/friendfinder.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gillesleroy/friendfinder/issues"
-  },
-  "homepage": "https://github.com/gillesleroy/friendfinder#readme"
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
