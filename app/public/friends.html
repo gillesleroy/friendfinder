@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Oracle App</title>
+</head>  
+<style>
+  body {background:#FFFFFF;color:#000000;font-family:Arial,sans-serif;margin:40px;padding:10px;font-size:12px;text-align:center;}
+  h1 {margin:0px;margin-bottom:12px;background:#FF0000;text-align:center;color:#FFFFFF;font-size:28px;}
+  h2 {margin:0px;margin-bottom:2px;background:whitesmoke;text-align:left;color:steelblue;font-size:22px;}
+  table {border-collapse: collapse;   margin-left:auto; margin-right:auto;}
+  td, th {padding:8px;border-style:solid}
+  </style>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <body>
+
+
+  <div class="container">
+    <h2>Friends</h2>
+    <hr>
+    <!-- Artist Information -->
+    <div id="query-div">
+      <!-- <table id="query-table">
+
+      </table> -->
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <p><a href="/">Home</a> | <a href="https://github.com/gillesleroy/friendfinder.git">GitHub Repo</a></p>
+    </div>
+  </footer>
+  </body>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./config/lib.js"></script>
+  <script>
+    function getFriends() {
+      var resFriendName;
+      var queryURL = "/api/data";
+      console.log(queryURL);
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        // Printing the entire object to console
+        console.log(response);
+        // $("#query-div").empty();
+        // $("#query-table").empty();
+        $("#query-div").empty();
+        for (var i=0; i<response.length; i++)
+        {
+        // Constructing HTML containing the artist information
+        // var resDepName = $("<h2>").text(response[i].department_name);
+        // newRow = $("<tr>");
+        // resFriendName = $("<td>").text(response[i].name);
+        newRow = $("<h4>").text(response[i].name);
+        // newRow.append(resFriendName);
+        $("#query-div").append(newRow);
+        }
+      });
+    }
+    
+    getFriends();
+  </script>
+</html>
